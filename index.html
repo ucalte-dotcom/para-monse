@@ -83,17 +83,18 @@ font-size:16px;
 
 <script>
 function go(n){
-  const screens = ["s1","s2","s3"];
+  const s1 = document.getElementById("s1");
+  const s2 = document.getElementById("s2");
+  const s3 = document.getElementById("s3");
 
-  // ocultar todas
-  screens.forEach(id=>{
-    const el = document.getElementById(id);
-    if(el) el.style.display = "none";
-  });
+  // ocultar todo
+  if(s1) s1.style.display = "none";
+  if(s2) s2.style.display = "none";
+  if(s3) s3.style.display = "none";
 
-  // mostrar la correcta
-  const active = document.getElementById("s"+n);
-  if(active) active.style.display = "block";
+  // mostrar solo el seleccionado
+  const target = document.getElementById("s"+n);
+  if(target) target.style.display = "block";
 
   window.scrollTo(0,0);
 }
