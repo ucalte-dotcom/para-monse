@@ -15,10 +15,7 @@ text-align:center;
 padding:40px;
 }
 
-.screen{
-display:none;
-min-height:100vh;
-}
+.screen{display:none;}
 
 button{
 padding:12px 20px;
@@ -34,45 +31,37 @@ margin-top:20px;
 
 <body>
 
-<!-- PANTALLA 1 -->
+<!-- S1 -->
 <div id="s1" class="screen" style="display:block;">
   <h1>Hola, mi cielo ❤️</h1>
-  <p>Hay momentos que solo se sienten.</p>
   <button onclick="go(2)">Abrir mi tesoro</button>
 </div>
 
-<!-- PANTALLA 2 -->
+<!-- S2 -->
 <div id="s2" class="screen">
   <h1>Bienvenida, Pingüina 🐧</h1>
-  <p>Gracias por seguir las pistas.</p>
   <button onclick="go(3)">Continuar</button>
 </div>
 
-<!-- PANTALLA 3 (LA CARTA) -->
-<div id="s3" style="display:none;">
+<!-- S3 (CARTA) -->
+<div id="s3" class="screen">
   <h2>El acceso a una pequeña parte de mi corazón</h2>
 
   <p>Hola, mi cielo.</p>
-
-  <p>Si estás leyendo esto, es porque llegaste hasta aquí.</p>
-
-  <p>No era un secreto. Era un instante para ti.</p>
-
-  <p>Gracias por existir en mi vida.</p>
+  <p>Gracias por llegar hasta aquí.</p>
+  <p>No era un secreto, era un instante para ti.</p>
+  <p>Me alegra que estés aquí conmigo.</p>
 
   <p><b>Tu Pingüi 🐧❤️</b></p>
 </div>
 
 <script>
 function go(n){
-
   document.getElementById("s1").style.display = "none";
   document.getElementById("s2").style.display = "none";
   document.getElementById("s3").style.display = "none";
 
   document.getElementById("s"+n).style.display = "block";
-
-  window.scrollTo(0,0);
 }
 </script>
 
