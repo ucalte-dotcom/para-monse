@@ -1,73 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para mi cielo ❤️</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Para ti ❤️</title>
+
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+
 body{
-margin:0;
-font-family:Georgia,serif;
-background:linear-gradient(180deg,#0b1020,#141414);
-color:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-height:100vh;
-overflow:hidden;
+  margin:0;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg,#0f172a,#1e293b);
+  color:white;
 }
-body:before{
-content:"";
-position:fixed;inset:0;
-background-image:radial-gradient(circle at 20% 30%,rgba(255,255,255,.18) 1px,transparent 1px),
-radial-gradient(circle at 70% 60%,rgba(255,255,255,.15) 1px,transparent 1px),
-radial-gradient(circle at 40% 80%,rgba(255,255,255,.12) 1px,transparent 1px);
-background-size:180px 180px;
-animation:drift 20s linear infinite;
-opacity:.6;
+
+.screen{
+  position:fixed;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
 }
-@keyframes drift{from{transform:translateY(0)}to{transform:translateY(-180px)}}
-.card{position:relative;z-index:1;max-width:720px;padding:40px;text-align:center;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);border-radius:20px;backdrop-filter:blur(6px)}
-.p{font-size:82px;animation:float 3s ease-in-out infinite}
-@keyframes float{50%{transform:translateY(-8px)}}
-h1{font-weight:400}
-p{font-size:1.2rem;line-height:1.8}
-button{margin-top:20px;padding:15px 35px;border:none;border-radius:999px;background:#d6336c;color:#fff;font-size:1.1rem;cursor:pointer;transition:.3s}
-button:hover{transform:scale(1.05)}
+
+.hidden{display:none;}
+
+.card{
+  max-width:700px;
+  background:rgba(255,255,255,0.06);
+  padding:25px;
+  border-radius:12px;
+  line-height:1.7;
+}
+
+button{
+  margin-top:20px;
+  padding:12px 20px;
+  border:none;
+  border-radius:20px;
+  background:#f43f5e;
+  color:white;
+  font-size:16px;
+}
+
+button:hover{transform:scale(1.05);}
+
+h1{margin-bottom:10px;}
 </style>
 </head>
+
 <body>
-<div class="card" id="card">
-<div class="p">🐧</div>
-<h1>Hola, mi cielo...</h1>
-<p>
-Hay regalos que se entregan con las manos.<br><br>
-Hay otros...<br>
-que esperan el momento perfecto.<br><br>
-<strong>Éste llevaba tiempo esperando encontrarte.</strong><br><br>
-❤️<br><br>
-Gracias por seguir las pistas.<br><br>
-Antes de abrir este pequeño tesoro...<br>
-quiero que sepas que cada palabra fue escrita pensando en ti.<br><br>
-Cuando estés lista...
-</p>
-<button onclick="abrir()">❤️ Abrir mi tesoro ❤️</button>
+
+<!-- 1 -->
+<div id="s1" class="screen">
+  <h1>Hola, mi cielo ❤️</h1>
+  <p>Hay momentos que no se explican… solo se sienten.</p>
+  <button onclick="go(2)">Abrir mi tesoro</button>
 </div>
+
+<!-- 2 -->
+<div id="s2" class="screen hidden">
+  <h1>Bienvenida, Pingüina 🐧</h1>
+  <p>Gracias por seguir las pistas.</p>
+  <button onclick="go(3)">Continuar</button>
+</div>
+
+<!-- 3 -->
+<div id="s3" class="screen hidden" style="overflow:auto;">
+  <div class="card">
+
+<h2>El acceso a una pequeña parte de mi corazón</h2>
+
+<p>Hola, mi cielo.</p>
+
+<p>Si estás leyendo esto, significa que decidiste seguir las pistas y abrir esta pequeña puerta que preparé para ti. Me hizo ilusión imaginar el momento en que escanearías ese código y descubrirías que detrás había algo pensado sólo para ti.</p>
+
+<p>No quería esconder un secreto. Quería regalarte un instante. Un momento en el que el tiempo se detuviera unos minutos y supieras que, incluso en los días más normales, hay alguien que disfruta imaginar maneras diferentes de hacerte sonreír.</p>
+
+<p>El futuro nos espera cielo y estoy seguro que en abundancia tendremos: amor, pasión, risas, café, humedad, besos, tranquilidad, ilusión, admiración y muchas ganas de seguir construyendo recuerdos contigo.</p>
+
+<p>Me gustan nuestras conversaciones, nuestras bromas, nuestros silencios y hasta esos pequeños detalles que sólo nosotros entendemos.</p>
+
+<p>Este documento no pretende decirlo todo.</p>
+
+<p><b>Gracias por existir en mi vida.</b></p>
+
+<p>Tú sabes cielo, que detrás de este “tesoro” hay un pingüi que te amaaaaa.</p>
+
+<p>Con todo mi cariño,<br><b>Tu Pingüi 🐧❤️</b></p>
+
+  </div>
+</div>
+
 <script>
-function abrir(){
-document.getElementById("card").innerHTML=`
-<div class="p">❤️</div>
-<h1>Bienvenida, Pingüina...</h1>
-<p>
-No quería esconder un secreto.<br><br>
-Quería regalarte un instante.<br><br>
-Gracias por regalarme también un pedacito de tu corazón.<br><br>
-<b>Abriendo tu carta...</b>
-</p>`;
-setTimeout(()=>{
-window.location.href="https://drive.google.com/file/d/1wMeuuxuEuGehv_yp758OU2OiPbBqYoqf/view?usp=sharing";
-},2500);
+function go(n){
+  document.getElementById('s1').classList.add('hidden');
+  document.getElementById('s2').classList.add('hidden');
+  document.getElementById('s3').classList.add('hidden');
+
+  document.getElementById('s'+n).classList.remove('hidden');
+  window.scrollTo(0,0);
 }
 </script>
+
 </body>
 </html>
