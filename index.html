@@ -8,28 +8,36 @@
 <style>
 body{
 margin:0;
-font-family: Arial;
+font-family: Arial, sans-serif;
 background:#0f172a;
 color:white;
-text-align:center;
 }
 
 .screen{
 display:none;
-padding:40px;
+min-height:100vh;
+padding:40px 20px;
+text-align:center;
 }
 
 .active{
 display:block;
 }
 
+.card{
+max-width:700px;
+margin:0 auto;
+text-align:left;
+line-height:1.7;
+}
+
 button{
 padding:12px 20px;
+margin-top:20px;
 border:none;
 border-radius:20px;
 background:#f43f5e;
 color:white;
-margin-top:20px;
 }
 </style>
 </head>
@@ -39,35 +47,42 @@ margin-top:20px;
 <div id="s1" class="screen active">
 <h1>Hola, mi cielo ❤️</h1>
 <p>Hay momentos que solo se sienten.</p>
-<button onclick="next(2)">Abrir mi tesoro</button>
+<button onclick="go(2)">Abrir mi tesoro</button>
 </div>
 
 <div id="s2" class="screen">
 <h1>Bienvenida, Pingüina 🐧</h1>
 <p>Gracias por seguir las pistas.</p>
-<button onclick="next(3)">Continuar</button>
+<button onclick="go(3)">Continuar</button>
 </div>
 
 <div id="s3" class="screen">
+<div class="card">
+
 <h2>El acceso a una pequeña parte de mi corazón</h2>
 
 <p>Hola, mi cielo.</p>
 
-<p>Si estás leyendo esto significa que seguiste las pistas...</p>
+<p>Si estás leyendo esto, significa que seguiste las pistas...</p>
 
 <p>No quería esconder un secreto. Quería regalarte un instante.</p>
 
 <p>El futuro nos espera cielo...</p>
 
+<p>Me gustan nuestras conversaciones y todo lo que compartimos.</p>
+
 <p><b>Gracias por existir en mi vida.</b></p>
 
 <p>Con todo mi cariño,<br>Tu Pingüi 🐧❤️</p>
+
+</div>
 </div>
 
 <script>
-function next(n){
+function go(n){
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById('s'+n).classList.add('active');
+window.scrollTo(0,0);
 }
 </script>
 
