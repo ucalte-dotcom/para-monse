@@ -8,19 +8,16 @@
 <style>
 body{
 margin:0;
-font-family: Arial;
+font-family: Arial, sans-serif;
 background:#0f172a;
 color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
 text-align:center;
-padding:20px;
+padding:40px;
 }
 
-.box{
-max-width:700px;
+.screen{
+display:none;
+min-height:100vh;
 }
 
 button{
@@ -29,44 +26,54 @@ border:none;
 border-radius:20px;
 background:#f43f5e;
 color:white;
-margin-top:20px;
 cursor:pointer;
+margin-top:20px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="box" id="content">
+<!-- PANTALLA 1 -->
+<div id="s1" class="screen" style="display:block;">
+  <h1>Hola, mi cielo ❤️</h1>
+  <p>Hay momentos que solo se sienten.</p>
+  <button onclick="go(2)">Abrir mi tesoro</button>
+</div>
 
-<h1 id="title">Hola, mi cielo ❤️</h1>
+<!-- PANTALLA 2 -->
+<div id="s2" class="screen">
+  <h1>Bienvenida, Pingüina 🐧</h1>
+  <p>Gracias por seguir las pistas.</p>
+  <button onclick="go(3)">Continuar</button>
+</div>
 
-<p id="text">Hay momentos que solo se sienten.</p>
+<!-- PANTALLA 3 (LA CARTA) -->
+<div id="s3" class="screen">
+  <h2>El acceso a una pequeña parte de mi corazón</h2>
 
-<button onclick="next()">Continuar</button>
+  <p>Hola, mi cielo.</p>
 
+  <p>Si estás leyendo esto, es porque llegaste hasta aquí.</p>
+
+  <p>No era un secreto. Era un instante para ti.</p>
+
+  <p>Gracias por existir en mi vida.</p>
+
+  <p><b>Tu Pingüi 🐧❤️</b></p>
 </div>
 
 <script>
+function go(n){
 
-let step = 0;
+  document.getElementById("s1").style.display = "none";
+  document.getElementById("s2").style.display = "none";
+  document.getElementById("s3").style.display = "none";
 
-function next(){
-step++;
+  document.getElementById("s"+n).style.display = "block";
 
-if(step === 1){
-document.getElementById("title").innerText = "Bienvenida, Pingüina 🐧";
-document.getElementById("text").innerText = "Gracias por seguir las pistas.";
+  window.scrollTo(0,0);
 }
-
-if(step === 2){
-document.getElementById("title").innerText = "El acceso a una pequeña parte de mi corazón";
-document.getElementById("text").innerText =
-"Hola, mi cielo. Gracias por llegar hasta aquí. No era un secreto, era un instante para ti. Con todo mi cariño, Tu Pingüi 🐧❤️";
-document.querySelector("button").style.display = "none";
-}
-}
-
 </script>
 
 </body>
