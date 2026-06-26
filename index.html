@@ -11,13 +11,14 @@ margin:0;
 font-family: Arial, sans-serif;
 background:#0f172a;
 color:white;
+text-align:center;
 }
 
 .screen{
 display:none;
 min-height:100vh;
 padding:40px 20px;
-text-align:center;
+box-sizing:border-box;
 }
 
 .active{
@@ -38,24 +39,28 @@ border:none;
 border-radius:20px;
 background:#f43f5e;
 color:white;
+font-size:16px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- S1 -->
 <div id="s1" class="screen active">
 <h1>Hola, mi cielo ❤️</h1>
 <p>Hay momentos que solo se sienten.</p>
 <button onclick="go(2)">Abrir mi tesoro</button>
 </div>
 
+<!-- S2 -->
 <div id="s2" class="screen">
 <h1>Bienvenida, Pingüina 🐧</h1>
 <p>Gracias por seguir las pistas.</p>
 <button onclick="go(3)">Continuar</button>
 </div>
 
+<!-- S3 -->
 <div id="s3" class="screen">
 <div class="card">
 
@@ -63,24 +68,25 @@ color:white;
 
 <p>Hola, mi cielo.</p>
 
-<p>Si estás leyendo esto, significa que seguiste las pistas...</p>
+<p>Si estás leyendo esto, significa que seguiste las pistas y abriste esta pequeña puerta que preparé para ti.</p>
 
 <p>No quería esconder un secreto. Quería regalarte un instante.</p>
 
 <p>El futuro nos espera cielo...</p>
 
-<p>Me gustan nuestras conversaciones y todo lo que compartimos.</p>
-
 <p><b>Gracias por existir en mi vida.</b></p>
 
-<p>Con todo mi cariño,<br>Tu Pingüi 🐧❤️</p>
+<p>Con todo mi cariño,<br><b>Tu Pingüi 🐧❤️</b></p>
 
 </div>
 </div>
 
 <script>
 function go(n){
-document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById('s1').classList.remove('active');
+document.getElementById('s2').classList.remove('active');
+document.getElementById('s3').classList.remove('active');
+
 document.getElementById('s'+n).classList.add('active');
 window.scrollTo(0,0);
 }
