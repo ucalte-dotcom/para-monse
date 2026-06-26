@@ -1,24 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>TEST</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family: Arial;
+background:#0f172a;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+text-align:center;
+padding:20px;
+}
+
+.box{
+max-width:700px;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:20px;
+background:#f43f5e;
+color:white;
+margin-top:20px;
+cursor:pointer;
+}
+</style>
 </head>
+
 <body>
 
-<div id="s1">
-<button onclick="go()">Ir a carta</button>
-</div>
+<div class="box" id="content">
 
-<div id="s3" style="display:none;">
-<h1>FUNCIONA LA CARTA</h1>
+<h1 id="title">Hola, mi cielo ❤️</h1>
+
+<p id="text">Hay momentos que solo se sienten.</p>
+
+<button onclick="next()">Continuar</button>
+
 </div>
 
 <script>
-function go(){
-document.getElementById("s1").style.display="none";
-document.getElementById("s3").style.display="block";
+
+let step = 0;
+
+function next(){
+step++;
+
+if(step === 1){
+document.getElementById("title").innerText = "Bienvenida, Pingüina 🐧";
+document.getElementById("text").innerText = "Gracias por seguir las pistas.";
 }
+
+if(step === 2){
+document.getElementById("title").innerText = "El acceso a una pequeña parte de mi corazón";
+document.getElementById("text").innerText =
+"Hola, mi cielo. Gracias por llegar hasta aquí. No era un secreto, era un instante para ti. Con todo mi cariño, Tu Pingüi 🐧❤️";
+document.querySelector("button").style.display = "none";
+}
+}
+
 </script>
 
 </body>
