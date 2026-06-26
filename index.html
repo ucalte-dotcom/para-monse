@@ -1,108 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para ti ❤️</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
-
 body{
-  margin:0;
-  font-family: 'Playfair Display', serif;
-  background: linear-gradient(135deg,#0f172a,#1e293b);
-  color:white;
+margin:0;
+font-family: Arial;
+background:#0f172a;
+color:white;
+text-align:center;
 }
 
 .screen{
-  position:fixed;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
+display:none;
+padding:40px;
 }
 
-.hidden{display:none;}
-
-.card{
-  max-width:700px;
-  background:rgba(255,255,255,0.06);
-  padding:25px;
-  border-radius:12px;
-  line-height:1.7;
+.active{
+display:block;
 }
 
 button{
-  margin-top:20px;
-  padding:12px 20px;
-  border:none;
-  border-radius:20px;
-  background:#f43f5e;
-  color:white;
-  font-size:16px;
+padding:12px 20px;
+border:none;
+border-radius:20px;
+background:#f43f5e;
+color:white;
+margin-top:20px;
 }
-
-button:hover{transform:scale(1.05);}
-
-h1{margin-bottom:10px;}
 </style>
 </head>
 
 <body>
 
-<!-- 1 -->
-<div id="s1" class="screen">
-  <h1>Hola, mi cielo ❤️</h1>
-  <p>Hay momentos que no se explican… solo se sienten.</p>
-  <button onclick="go(2)">Abrir mi tesoro</button>
+<div id="s1" class="screen active">
+<h1>Hola, mi cielo ❤️</h1>
+<p>Hay momentos que solo se sienten.</p>
+<button onclick="next(2)">Abrir mi tesoro</button>
 </div>
 
-<!-- 2 -->
-<div id="s2" class="screen hidden">
-  <h1>Bienvenida, Pingüina 🐧</h1>
-  <p>Gracias por seguir las pistas.</p>
-  <button onclick="go(3)">Continuar</button>
+<div id="s2" class="screen">
+<h1>Bienvenida, Pingüina 🐧</h1>
+<p>Gracias por seguir las pistas.</p>
+<button onclick="next(3)">Continuar</button>
 </div>
 
-<!-- 3 -->
-<div id="s3" class="screen hidden" style="overflow:auto;">
-  <div class="card">
-
+<div id="s3" class="screen">
 <h2>El acceso a una pequeña parte de mi corazón</h2>
 
 <p>Hola, mi cielo.</p>
 
-<p>Si estás leyendo esto, significa que decidiste seguir las pistas y abrir esta pequeña puerta que preparé para ti. Me hizo ilusión imaginar el momento en que escanearías ese código y descubrirías que detrás había algo pensado sólo para ti.</p>
+<p>Si estás leyendo esto significa que seguiste las pistas...</p>
 
-<p>No quería esconder un secreto. Quería regalarte un instante. Un momento en el que el tiempo se detuviera unos minutos y supieras que, incluso en los días más normales, hay alguien que disfruta imaginar maneras diferentes de hacerte sonreír.</p>
+<p>No quería esconder un secreto. Quería regalarte un instante.</p>
 
-<p>El futuro nos espera cielo y estoy seguro que en abundancia tendremos: amor, pasión, risas, café, humedad, besos, tranquilidad, ilusión, admiración y muchas ganas de seguir construyendo recuerdos contigo.</p>
-
-<p>Me gustan nuestras conversaciones, nuestras bromas, nuestros silencios y hasta esos pequeños detalles que sólo nosotros entendemos.</p>
-
-<p>Este documento no pretende decirlo todo.</p>
+<p>El futuro nos espera cielo...</p>
 
 <p><b>Gracias por existir en mi vida.</b></p>
 
-<p>Tú sabes cielo, que detrás de este “tesoro” hay un pingüi que te amaaaaa.</p>
-
-<p>Con todo mi cariño,<br><b>Tu Pingüi 🐧❤️</b></p>
-
-  </div>
+<p>Con todo mi cariño,<br>Tu Pingüi 🐧❤️</p>
 </div>
 
 <script>
-function go(n){
-  document.getElementById('s1').classList.add('hidden');
-  document.getElementById('s2').classList.add('hidden');
-  document.getElementById('s3').classList.add('hidden');
-
-  document.getElementById('s'+n).classList.remove('hidden');
-  window.scrollTo(0,0);
+function next(n){
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById('s'+n).classList.add('active');
 }
 </script>
 
