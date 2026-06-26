@@ -9,7 +9,7 @@
 body{
 margin:0;
 font-family: Arial, sans-serif;
-background:#0f172a;
+background: linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
 color:white;
 text-align:center;
 padding:40px;
@@ -18,50 +18,92 @@ padding:40px;
 .screen{display:none;}
 
 button{
-padding:12px 20px;
+padding:12px 22px;
 border:none;
-border-radius:20px;
+border-radius:25px;
 background:#f43f5e;
 color:white;
 cursor:pointer;
 margin-top:20px;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#fb7185;
+}
+
+.card{
+max-width:600px;
+margin:auto;
+line-height:1.7;
+}
+
+img{
+width:180px;
+border-radius:20px;
+margin-top:20px;
+box-shadow:0 0 20px rgba(255,255,255,0.15);
 }
 </style>
 </head>
 
 <body>
 
+<!-- 🎵 Música (opcional) -->
+<audio id="music" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
 <!-- S1 -->
 <div id="s1" class="screen" style="display:block;">
   <h1>Hola, mi cielo ❤️</h1>
-  <p>Hay momentos que solo se sienten.</p>
+  <p>Hay personas que llegan sin hacer ruido… pero cambian todo.</p>
   <button onclick="go(2)">Abrir mi tesoro</button>
 </div>
 
 <!-- S2 -->
 <div id="s2" class="screen">
   <h1>Bienvenida, Pingüina 🐧</h1>
-  <p>Gracias por seguir las pistas.</p>
+  <p>Gracias por seguir cada pista...</p>
   <button onclick="go(3)">Continuar</button>
 </div>
 
-<!-- S3 -->
-<div id="s3">
+<!-- S3 (CARTA) -->
+<div id="s3" class="screen">
+  <div class="card">
 
-  <h2>El acceso a una pequeña parte de mi corazón</h2>
+    <h2>El acceso a una pequeña parte de mi corazón</h2>
 
-  <img src="monse.jpg" style="width:200px;border-radius:20px;">
+    <!-- 🖼️ FOTO AQUÍ -->
+    <img src="monse.jpg" alt="foto">
 
-  <p>Hola, mi cielo.</p>
+    <p>Hola, mi cielo.</p>
 
-  <p>Texto de la carta...</p>
+    <p>
+    No era un secreto… era un instante guardado para ti.
+    Un pequeño espacio donde el mundo se detiene
+    y solo existimos tú y yo en palabras.
+    </p>
 
-</div>
-  <p>Gracias por llegar hasta aquí.</p>
-  <p>No era un secreto, era un instante para ti.</p>
-  <p>Me gusta que estés aquí conmigo.</p>
+    <p>
+    Me gusta imaginarte leyendo esto, sonriendo un poco,
+    sin saber que en cada línea hay alguien pensando en ti.
+    </p>
 
-  <p><b>Tu Pingüi 🐧❤️</b></p>
+    <p>
+    Gracias por existir en mi vida, por estar, por ser,
+    por hacer que lo cotidiano tenga sentido distinto.
+    </p>
+
+    <p><b>Tu Pingüi 🐧❤️</b></p>
+
+    <!-- 🎵 botón música -->
+    <button onclick="document.getElementById('music').play()">
+      ▶ Reproducir música
+    </button>
+
+  </div>
 </div>
 
 <script>
@@ -71,6 +113,7 @@ function go(n){
   document.getElementById("s3").style.display = "none";
 
   document.getElementById("s"+n).style.display = "block";
+  window.scrollTo(0,0);
 }
 </script>
 
